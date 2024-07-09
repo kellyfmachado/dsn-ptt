@@ -19,21 +19,21 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/login/{user}")
-    public ResponseEntity<User> login(@PathVariable User user,String email, String password){
-        userService.login(email,password);
-        return ResponseEntity.ok(user);
+    @PostMapping("/login/{id}")
+    public ResponseEntity<User> login(@PathVariable Long id){
+        userService.login(id);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/logout/{user}")
-    public ResponseEntity<User> logout(@PathVariable User user,String email, String password){
-        userService.logout(email,password);
+    public ResponseEntity<User> logout(@PathVariable User user){
+        userService.logout(user);
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping("/view/{user}")
-    public ResponseEntity<User> viewProfile(@PathVariable User user){
-        userService.viewProfile(user);
-        return ResponseEntity.ok(user);
+    @GetMapping("/view/{id}")
+    public ResponseEntity<User> viewProfile(@PathVariable Long id){
+        userService.viewProfile(id);
+        return ResponseEntity.ok().build();
     }
 }
