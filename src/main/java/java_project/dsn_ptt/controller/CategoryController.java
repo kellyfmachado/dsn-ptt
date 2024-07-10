@@ -16,13 +16,13 @@ public class CategoryController {
     @PostMapping("/add/{category}")
     public ResponseEntity<Category> add(@PathVariable Category category) {
         categoryService.addCategory(category);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(category);
     }
 
     @PutMapping("/update/{category}")
     public ResponseEntity<Category> update(Long id, @PathVariable Category category) {
         categoryService.updateCategory(id, category);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(category);
     }
 
     @DeleteMapping("/delete/{category}")

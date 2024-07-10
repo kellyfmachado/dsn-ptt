@@ -16,13 +16,13 @@ public class TransactionController {
     @PostMapping("/add/{transaction}")
     public ResponseEntity<Transaction> add(@PathVariable Transaction transaction) {
         transactionService.addTransaction(transaction);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(transaction);
     }
 
     @PutMapping("/update/{transaction}")
     public ResponseEntity<Transaction> update(Long id, @PathVariable Transaction transaction) {
         transactionService.updateTransaction(id, transaction);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(transaction);
     }
 
     @DeleteMapping("/delete/{transaction}")
